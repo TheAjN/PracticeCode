@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Adventure/src"/>
+	<classpathentry kind="src" path="Arrays,ArrayList,Autoboxing and Unboxing/src"/>
+	<classpathentry kind="src" path="ByteShortIntLong/src"/>
+	<classpathentry kind="src" path="CodingExercise/src"/>
+	<classpathentry kind="src" path="forloop/src"/>
+	<classpathentry kind="src" path="Generics/src"/>
+	<classpathentry kind="src" path="hello world/src"/>
+	<classpathentry kind="src" path="Hello/src"/>
+	<classpathentry kind="src" path="Inheritance/src"/>
+	<classpathentry kind="src" path="Inner and Abstract Classes &amp; Interfaces/src"/>
+	<classpathentry kind="src" path="JavaCollections/src"/>
+	<classpathentry kind="src" path="ObjectOrientedProgramming/src"/>
+	<classpathentry kind="src" path="ParsingString/Method Overloading/src"/>
+	<classpathentry kind="src" path="ParsingString/src"/>
+	<classpathentry kind="src" path="Switch Statement/src"/>
+	<classpathentry kind="output" path="Adventure/bin"/>
+</classpath>

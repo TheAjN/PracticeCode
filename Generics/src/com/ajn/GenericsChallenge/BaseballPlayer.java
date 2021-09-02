@@ -1,5 +1,7 @@
 package com.ajn.GenericsChallenge;
 
+
+
 public class BaseballPlayer extends Player {
 
 	
