@@ -48,6 +48,15 @@ public class Main {
      locations.get(5).addExit("W", 2);
 //     locations.get(5).addExit("Q", 0);
        
+     Map<String, String> vocabulary = new HashMap<>();
+     
+     vocabulary.put("NORTH","N");
+     vocabulary.put("SOUTH", "S");
+     vocabulary.put("EAST", "E");
+     vocabulary.put("WEST", "W");
+     vocabulary.put("QUIT", "Q");
+     
+     
      int loc =1;
      while(true) {
     	 
@@ -66,55 +75,66 @@ public class Main {
     	 
     	 
     	 String sentence = scanner.nextLine().toUpperCase();  // E, W, N, S, Q
+//    	 
+//    	 String[] directions = sentence.split(" ");
+//    	 
+//    	 String finaldirection = null;
+//    	 
+//    	 for (String direction : directions) {
+//    		 direction = direction.toUpperCase();
+//
+//    		 switch(direction){
+//			
+//    		 case "NORTH": 
+//    			 finaldirection = "N";
+//    			 break;
+//    		 case "SOUTH":
+//    			 finaldirection = "S";
+//    			 break;
+//    		 case "EAST":
+//    			 finaldirection = "E";
+//    			 break;
+//    		 case "WEST":
+//    			 finaldirection = "W";
+//    			 break;
+//    		 case "N":
+//    			 finaldirection = direction;
+//    			 break;
+//    		 case "S":
+//    			 finaldirection = direction;
+//    			 break;
+//    		 case "W":
+//    			 finaldirection = direction;
+//    			 break;
+//    		 case "E":
+//    			 finaldirection = direction;
+//    			 break;
+//    		 case "QUIT":
+//    			 finaldirection = "Q";
+//    			 break;
+//    		 case "Q":
+//    			 finaldirection = direction;
+//    			 break;
+//    			 
+//				
+//			}
+//		}
     	 
-    	 String[] directions = sentence.split(" ");
+    	 if(sentence.length()>1) {
+    		 
+        	 String[] directions = sentence.split(" ");
+        	 
+        	 for (String direction : directions) { 
+        		 if(vocabulary.containsKey(direction)) {
+        			 sentence = vocabulary.get(direction);
+        			 break;
+        		 }
+        	 }
+    		 
+    	 }
     	 
-    	 String finaldirection = null;
-    	 
-    	 for (String direction : directions) {
-    		 direction = direction.toUpperCase();
-//			if(direction.equals("EAST") ||direction.equals("WEST") 
-//					|| direction.equals("NORTH") ||direction.equals("SOUTH") || direction.equals("S")
-//					||direction.equals("N") ||direction.equals("E")) {
-    		 switch(direction){
-			
-    		 case "NORTH": 
-    			 finaldirection = "N";
-    			 break;
-    		 case "SOUTH":
-    			 finaldirection = "S";
-    			 break;
-    		 case "EAST":
-    			 finaldirection = "E";
-    			 break;
-    		 case "WEST":
-    			 finaldirection = "W";
-    			 break;
-    		 case "N":
-    			 finaldirection = direction;
-    			 break;
-    		 case "S":
-    			 finaldirection = direction;
-    			 break;
-    		 case "W":
-    			 finaldirection = direction;
-    			 break;
-    		 case "E":
-    			 finaldirection = direction;
-    			 break;
-    		 case "QUIT":
-    			 finaldirection = "Q";
-    			 break;
-    		 case "Q":
-    			 finaldirection = direction;
-    			 break;
-    			 
-				
-			}
-		}
-    	 
-    	 if(exits.containsKey(finaldirection)) {
-    		 loc = exits.get(finaldirection);
+    	 if(exits.containsKey(/*finaldirection*/ sentence )) {
+    		 loc = exits.get(/*finaldirection*/ sentence);
     	 }else {
     		 System.out.println("You can't go in that direction");
     	 }
