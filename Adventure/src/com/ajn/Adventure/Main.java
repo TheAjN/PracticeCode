@@ -9,6 +9,7 @@ public class Main {
 	private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
 	
 	public static void main(String[] args) {
+		
 		// Change the program to allow players to type full words, or phrases, then move to the
         // correct location based upon their input.
         // The player should be able to type commands such as "Go West", "run South", or just "East"
@@ -64,10 +65,56 @@ public class Main {
     	 
     	 
     	 
-    	 String direction = scanner.nextLine().toUpperCase();  // E, W, N, S, Q
+    	 String sentence = scanner.nextLine().toUpperCase();  // E, W, N, S, Q
     	 
-    	 if(exits.containsKey(direction)) {
-    		 loc = exits.get(direction);
+    	 String[] directions = sentence.split(" ");
+    	 
+    	 String finaldirection = null;
+    	 
+    	 for (String direction : directions) {
+    		 direction = direction.toUpperCase();
+//			if(direction.equals("EAST") ||direction.equals("WEST") 
+//					|| direction.equals("NORTH") ||direction.equals("SOUTH") || direction.equals("S")
+//					||direction.equals("N") ||direction.equals("E")) {
+    		 switch(direction){
+			
+    		 case "NORTH": 
+    			 finaldirection = "N";
+    			 break;
+    		 case "SOUTH":
+    			 finaldirection = "S";
+    			 break;
+    		 case "EAST":
+    			 finaldirection = "E";
+    			 break;
+    		 case "WEST":
+    			 finaldirection = "W";
+    			 break;
+    		 case "N":
+    			 finaldirection = direction;
+    			 break;
+    		 case "S":
+    			 finaldirection = direction;
+    			 break;
+    		 case "W":
+    			 finaldirection = direction;
+    			 break;
+    		 case "E":
+    			 finaldirection = direction;
+    			 break;
+    		 case "QUIT":
+    			 finaldirection = "Q";
+    			 break;
+    		 case "Q":
+    			 finaldirection = direction;
+    			 break;
+    			 
+				
+			}
+		}
+    	 
+    	 if(exits.containsKey(finaldirection)) {
+    		 loc = exits.get(finaldirection);
     	 }else {
     		 System.out.println("You can't go in that direction");
     	 }
