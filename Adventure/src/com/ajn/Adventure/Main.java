@@ -21,37 +21,52 @@ public class Main {
 		
 	Scanner scanner = new Scanner(System.in);
 
-	 locations.put(0, new Location(0, "You are sitting in front of a computer learning Java"));
-     locations.put(1, new Location(1, "You are standing at the end of a road before a small brick building"));
-     locations.put(2, new Location(2, "You are at the top of a hill"));
-     locations.put(3, new Location(3, "You are inside a building, a well house for a small spring"));
-     locations.put(4, new Location(4, "You are in a valley beside a stream"));
-     locations.put(5, new Location(5, "You are in the forest"));
+//		locations.put(0, new Location(0, "You are sitting in front of a computer learning Java"));
+//     locations.put(1, new Location(1, "You are standing at the end of a road before a small brick building"));
+//     locations.put(2, new Location(2, "You are at the top of a hill"));
+//     locations.put(3, new Location(3, "You are inside a building, a well house for a small spring"));
+//     locations.put(4, new Location(4, "You are in a valley beside a stream"));
+//     locations.put(5, new Location(5, "You are in the forest"));
 
-     locations.get(1).addExit("W", 2);	//ROAD
-     locations.get(1).addExit("E", 3);
-     locations.get(1).addExit("N", 5);
-     locations.get(1).addExit("S", 4);
-   //  locations.get(1).addExit("Q", 0);
+     locations.put(0, new Location(0, "You are sitting in front of a computer learning Java",null));
+     																			//fixed null issue in location constructor
      
-     locations.get(2).addExit("N", 5);	//HILL
- //   locations.get(2).addExit("Q", 0);
+     Map<String,Integer>  tempExit = new HashMap<String, Integer>();
+     tempExit.put("W", 2);	//ROAD
+     tempExit.put("E", 3);
+     tempExit.put("N", 5);
+     tempExit.put("S", 4);
+   //  tempExit.put("Q", 0);
+     locations.put(1, new Location(1, "You are standing at the end of a road before a small brick building",tempExit));
      
-     locations.get(3).addExit("W", 1);	//BUILDING
-  //   locations.get(3).addExit("Q", 0);
      
-     locations.get(4).addExit("N", 1);	//VALLEY
-     locations.get(4).addExit("W", 2);
-  //   locations.get(4).addExit("Q", 0);
+     tempExit = new HashMap<String, Integer>();
+     tempExit.put("N", 5);	//HILL
+ //   tempExit.put("Q", 0);
+     locations.put(2, new Location(2, "You are at the top of a hill",tempExit));
      
-     locations.get(5).addExit("S", 1);	//FOREST
-     locations.get(5).addExit("W", 2);
-//     locations.get(5).addExit("Q", 0);
-       
+     tempExit = new HashMap<String, Integer>();
+     tempExit.put("W", 1);	//BUILDING
+  //   tempExit.put("Q", 0);
+     locations.put(3, new Location(3, "You are inside a building, a well house for a small spring",tempExit));
+     
+     
+     tempExit = new HashMap<String, Integer>();
+     tempExit.put("N", 1);	//VALLEY
+     tempExit.put("W", 2);
+  //   tempExit.put("Q", 0);
+     locations.put(4, new Location(4, "You are in a valley beside a stream",tempExit));
+     
+     tempExit = new HashMap<String, Integer>();
+     tempExit.put("S", 1);	//FOREST
+     tempExit.put("W", 2);
+//     tempExit.put("Q", 0);
+     locations.put(5, new Location(5, "You are in the forest",tempExit));
+     
      Map<String, String> vocabulary = new HashMap<>();
      
      vocabulary.put("NORTH","N");
-     vocabulary.put("SOUTH", "S");
+     vocabulary.put("SOUTH","S");
      vocabulary.put("EAST", "E");
      vocabulary.put("WEST", "W");
      vocabulary.put("QUIT", "Q");
@@ -59,8 +74,12 @@ public class Main {
      
      int loc =1;
      while(true) {
-    	 
+    	
     	System.out.println(locations.get(loc).getDescription());
+    	tempExit.remove("S");		//Testing if direction south is removed for Forest 
+    								//why forest and not road? the last instance of tempExit was created
+    								//Forest location,therefore "S" will be removed from Forest location class
+    	
     	 if(loc==0) {
     		 break;
     	 }
