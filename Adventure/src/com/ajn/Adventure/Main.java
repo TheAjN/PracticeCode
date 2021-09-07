@@ -77,14 +77,16 @@ public class Main {
     	
     	System.out.println(locations.get(loc).getDescription());
     	tempExit.remove("S");		//Testing if direction south is removed for Forest 
-    								//why forest and not road? the last instance of tempExit was created
+    								//why forest and not road? the last instance of tempExit was created for
     								//Forest location,therefore "S" will be removed from Forest location class
     	
     	 if(loc==0) {
     		 break;
     	 }
     	 
-    	 Map<String, Integer> exits = locations.get(loc).getExits();
+    	 Map<String, Integer> exits = locations.get(loc).getExits(); //getExits() returns new instance of 
+    	 															//HashMap to exits Map in Main, to prevent
+    	 															//Shallow copy
     	 System.out.println("Available Exits are = ");
     	 for (String exit : exits.keySet()) {
 			System.out.print(exit + ", ");
