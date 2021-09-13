@@ -5,9 +5,9 @@ import java.util.Set;
 
 import sun.tools.tree.ThisExpression;
 
-public final class HeavenlyBody {
+public final class HeavenlyBody {	//to prevent HeavenlyBody class to be subclassed
 
-	private final String name;
+	private final String name;		
 	private final double orbitalperiod;
 	private final Set<HeavenlyBody> satellites;		
 	
@@ -47,7 +47,7 @@ public final class HeavenlyBody {
 		
 		System.out.println("obj.getClass()" + obj.getClass());
 		System.out.println("this.getClass()" + this.getClass());
-		if((obj==null) || (obj.getClass()!=this.getClass())) {
+		if((obj==null) || (obj.getClass()!=this.getClass())) { //similiar to instanceof keyword
 			return false;
 		}
 		
@@ -55,31 +55,14 @@ public final class HeavenlyBody {
 		return this.getName().equals(objName);
 	}
 	
+
+	@Override
+	public int hashCode() {
+		System.out.println("hashcode called");
+	//	return super.hashCode();
+		return this.name.hashCode() + 57; //57 is added to make the hashcode non zero
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }

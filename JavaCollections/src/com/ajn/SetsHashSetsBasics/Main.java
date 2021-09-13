@@ -97,9 +97,9 @@ public class Main {
 		
 		Set<HeavenlyBody> moons = new HashSet<>();
 		for (HeavenlyBody planet : planets) {
-			moons.addAll(planet.getSatellites());
-			
+			moons.addAll(planet.getSatellites());	
 		}
+		
 		
 		System.out.println("All the moons");
 		for (HeavenlyBody moon : moons) {
@@ -107,7 +107,7 @@ public class Main {
 		}
 		
 		
-		HeavenlyBody pluto = new HeavenlyBody("Pluto",4332);
+		HeavenlyBody pluto = new HeavenlyBody("Pluto",832);
 		planets.add(pluto);
 		
 		for (HeavenlyBody planet : planets) {
