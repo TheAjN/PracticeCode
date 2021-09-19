@@ -152,6 +152,9 @@ public class Theatre {
 		}
 	}
 	
+	
+	
+	
 	public class Seat implements Comparable<Seat>{
 		
 		private final String seatNumber;

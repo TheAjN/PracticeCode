@@ -3,7 +3,7 @@ package com.ajn.SetsHashSetsBasics;
 import java.util.HashSet;
 import java.util.Set;
 
-import sun.tools.tree.ThisExpression;
+
 
 public final class HeavenlyBody {	//to prevent HeavenlyBody class to be subclassed
 

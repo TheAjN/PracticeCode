@@ -97,7 +97,7 @@ public class Main {
 		
 		Set<HeavenlyBody> moons = new HashSet<>();
 		for (HeavenlyBody planet : planets) {
-			moons.addAll(planet.getSatellites());	
+			moons.addAll(planet.getSatellites());	//union of all moons
 		}
 		
 		
