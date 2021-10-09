@@ -79,14 +79,14 @@ public abstract class HeavenlyBody {
 
 	@Override
 	public final int hashCode() {
-		// TODO Auto-generated method stub
+		
 	//	return this.name.hashCode() + 57 +  this.bodyType.hashCode(); //generating hashCode
 		
 		return this.key.hashCode();
 	}
 
 	@Override
-	public String toString() {  //when we try to  print an objct, Java implicitly calls this function 
+	public String toString() {  //when we try to  print an object, Java implicitly calls this function 
 		return "name=" + key.name + ", orbitalPeriod=" + orbitalPeriod + ", bodyType=" + key.bodyType ;
 	}
 
@@ -101,8 +101,9 @@ public abstract class HeavenlyBody {
 		return new key(name, bodyType);
 	}
 	
+	
 	public static final class key{  //Why static? - to prevent this class to access methods & fields
-		private String name;		// from the class within which it is nested (HeavanlyBody)
+		private String name;		// from the class within which it is nested (HeavenlyBody)
 		private bodyTypes bodyType;
 	
 		public key(String name, bodyTypes bodyType) {
@@ -127,7 +128,7 @@ public abstract class HeavenlyBody {
 
 		@Override
 		public boolean equals(Object o) {
-			// TODO Auto-generated method stub
+	
 			if (this == o) {
 				return true;
 			}
