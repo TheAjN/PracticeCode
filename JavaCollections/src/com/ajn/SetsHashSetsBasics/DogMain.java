@@ -12,7 +12,7 @@ public class DogMain {
 		System.out.println(rover2.equals(rover));	//returns true
 		
 		//Since this violates the assymmetric rule of equals() method since both the scenario should return true
-		//The one ay to fix this is to remove the Overridden equals method in labrador
+		//The one way to fix this is to remove the Overridden equals method in labrador
 	}
 
 }
