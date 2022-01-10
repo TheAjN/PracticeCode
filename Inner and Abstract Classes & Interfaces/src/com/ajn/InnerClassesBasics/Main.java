@@ -11,15 +11,15 @@ public class Main {
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//		System.out.println(System.getProperty("java.runtime.version"));
+
+	System.out.println(System.getProperty("java.runtime.version"));
 		
 //		GearBox bentley = new GearBox(5);
-////		GearBox.Gear first= bentley.new Gear(1,12.5);
-////		
+////		GearBox.Gear first = bentley.new Gear(1,12.5);
+////
 ////		GearBox.Gear secondGear = new bentley.Gear(1,4.2);
 ////		GearBox.Gear secondGear = new GearBox.Gear(1,4.2);
-////		
+////
 ////	System.out.println(first.driveSpeed(1000));
 //		
 ////		bentley.addGear(1, 5.3);
@@ -41,12 +41,11 @@ public class Main {
 //
 //			public ClickListener() {
 //				System.out.println("I have been attached");
-//				// TODO Auto-generated constructor stub
+//
 //			}
 //
 //			@Override												//LOCAL CLASS
 //			public void onClick(String title) {
-//				// TODO Auto-generated method stub
 //				System.out.println(title+" is clicked");
 //			}
 //			 

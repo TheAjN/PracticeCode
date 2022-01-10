@@ -4,9 +4,17 @@ package com.ajn.polmorphism1;
 class Movie {
 	private String movie;
 
+	
+	
+	public Movie() {
+		this(null);
+	}
+
+
 	public Movie(String movie) {
 		this.movie = movie;
 	}
+	
 	
 	public String plot() {
 		return "No plot here";
@@ -110,7 +118,9 @@ public class Main {
 		System.out.println(movie2.getMovie()); // constructor of independenceday is called
 												//and it is initialized in an instance(movie) of class Movie
 		
+		StarWars star = (StarWars) new Movie(); // This will cause a class case exception
 		
+		star.plot();
 	}
 
 	
