@@ -5,7 +5,7 @@ import static com.ajn.ThreadColour.ANSI_BLUE;
 public class AnotherThread  extends Thread {
 
     @Override
-    public void run() {
+    public void run(){
      //  super.run();
        System.out.println(ANSI_BLUE + "Hello from "+currentThread().getName());     //currentThread() gets the name of this thread class
        try{
