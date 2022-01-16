@@ -1,4 +1,4 @@
-
+package com.aj.Exceptions;
 
 
 public class withoutCatchBlockTest {
