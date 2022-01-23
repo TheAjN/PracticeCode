@@ -1,6 +1,6 @@
-package com.ajn;
+package com.aj;
 
-import static com.ajn.ThreadColour.*;
+import static com.aj.ThreadColour.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -47,7 +47,7 @@ public class Main {
                 System.out.println(ANSI_PURPLE + "Hello from Anonymous class from Runnable Interface");
 
                 try {
-
+                    Thread.sleep(2000);
                     //join() method blocks the current thread and joins the reference thread
                     //to the current thread once the reference thread is executed/terminated
                     anotherThread.join(2000);

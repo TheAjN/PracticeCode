@@ -1,6 +1,6 @@
-package com.ajn;
+package com.aj;
 
-import static com.ajn.ThreadColour.ANSI_RED;
+import static com.aj.ThreadColour.ANSI_RED;
 
 public class MyRunnable implements Runnable{
 
