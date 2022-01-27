@@ -1,4 +1,4 @@
-package com.aj;
+package com.aj.lambdaAsAnArgument;
 
 //Lambda Expression within method parameters
 

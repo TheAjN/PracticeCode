@@ -2,7 +2,6 @@ package com.aj;
 
 import java.util.Random;
 
-
 //To truly understand the flow of this code, it would be best to debug it
 public class Main {
 
