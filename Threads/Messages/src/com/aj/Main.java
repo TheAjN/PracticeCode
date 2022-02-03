@@ -2,6 +2,7 @@ package com.aj;
 
 import java.util.Random;
 
+//WAIT() & NOTIFY() concept
 //To truly understand the flow of this code, it would be best to debug it
 public class Main {
 

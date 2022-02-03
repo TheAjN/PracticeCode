@@ -22,6 +22,7 @@ public class Main {
         new Thread(producer).start();
         new Thread(consumer1).start();
         new Thread(consumer2).start();
+        System.out.println(3%1);
     }
 }
 
@@ -83,23 +84,32 @@ class myConsumer implements Runnable {
 
     @Override
     public void run() {
+        int count = 0;
         while (true) {
-            reentrantLock.lock();
-            try {
-                if (buffer.isEmpty()) {
-            //        reentrantLock.unlock(); // This has to be commented because a thread cannot unlock a lock
-                                            //which it doesn't own, therefore causing an illegalMonitorException
-                    continue;
+        //    reentrantLock.lock();
+
+            if (reentrantLock.tryLock()) { //tryLock() checks if the block of code is locked or not, if not,
+                                        //Then the thread will lock the below code automatically
+                try {
+                    if (buffer.isEmpty()) {
+                        //        reentrantLock.unlock(); // This has to be commented because a thread cannot unlock a lock
+                        //which it doesn't own, therefore causing an illegalMonitorException
+                        continue;
+                    }
+                    System.out.println(color + "counter = " + count);
+                    count = 0;
+                    if (buffer.get(0).equals(EOF)) {
+                        System.out.println(color + "Exiting");
+                        //   reentrantLock.unlock();
+                        break;
+                    } else {
+                        System.out.println(color + "Removed " + buffer.remove(0));
+                    }
+                } finally {
+                    reentrantLock.unlock();
                 }
-                if (buffer.get(0).equals(EOF)) {
-                    System.out.println(color + "Exiting");
-                 //   reentrantLock.unlock();
-                    break;
-                } else {
-                    System.out.println(color + "Removed " + buffer.remove(0));
-                }
-            } finally {
-                reentrantLock.unlock();
+            }else{
+                count++;
             }
         }
     }
