@@ -76,7 +76,7 @@ public class Main {
         Stream<String> inNumberStream = Stream.of("N40","N36","I26","I17","I29","O71");
         Stream<String> ionNumberStream = Stream.concat(ioNumberStream,inNumberStream);
         List<String> outputOfIONNumberStream = new ArrayList<>();
-    //    System.out.println(ionNumberStream.distinct().count());
+        System.out.println(ionNumberStream.distinct().count());
         //distinct returns only unique elements from the source stream
         // count() is a terminal operation
 
@@ -92,8 +92,9 @@ public class Main {
 
 
         //NOTES -
-        // 1. Once a stream is closed/terminated, the same stream cannot be reused, since it would cause
-        //an IllegalStateException
+        // 1. Once an object of type "Stream<>" is closed/terminated, the same stream cannot be reused,
+        // since it would cause an IllegalStateException
+        //You CAN create multiple streams of Objects of type List, since streams are stateless
         //2. Intermediate operations won't bew executed until a terminal operation is called. Why?
         //because intermediate operation is lazy
         //3. You cannot re-continue an intermediate pipeline
