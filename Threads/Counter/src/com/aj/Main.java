@@ -42,7 +42,7 @@ class CountDown {
                 color = ThreadColour.ANSI_GREEN;
         }
 
-        synchronized (this){    //Since the threads share the countdown object, it would make sense to add
+        synchronized (this){    //Since the threads share a single countdown object, it would make sense to add
                                 //the countdown object itself within the countdown class (this) to prevent thread inteference
             for(i=10; i>0 ; i--){
                 System.out.println(color + Thread.currentThread().getName() + " : i = "+i);
@@ -55,7 +55,7 @@ class CountDown {
 
 
 class countThread extends Thread{
-    private CountDown countDown;
+    private final CountDown countDown;
 
 
     countThread(CountDown countDown){

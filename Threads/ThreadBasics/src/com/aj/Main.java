@@ -21,12 +21,7 @@ public class Main {
         //  anotherThread.run();
 
         //Anonymous Class
-        new Thread() {
-            @Override
-            public void run() {
-                System.out.println(ANSI_CYAN + "Hello from Anonymous Thread");
-            }
-        }.start();
+        new Thread(() -> System.out.println(ANSI_CYAN + "Hello from Anonymous Thread")).start();
 
         //Main class again
         System.out.println(ANSI_GREEN + "Hello again from main thread"); //GREEN
@@ -50,11 +45,10 @@ public class Main {
                     Thread.sleep(2000);
                     //join() method blocks the current thread and joins the reference thread
                     //to the current thread once the reference thread is executed/terminated
-                    anotherThread.join(2000);
+                    anotherThread.join(1000);
                     System.out.println(ANSI_PURPLE + "anotherThread thread is terminated/timed out");
                 } catch (InterruptedException e) {
                     System.out.println(ANSI_PURPLE + "wasn't able to join with anotherThread, got interrupted");
-                    return;
                 }
 
             }

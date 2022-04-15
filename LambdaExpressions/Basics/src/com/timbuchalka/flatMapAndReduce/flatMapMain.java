@@ -35,7 +35,7 @@ public class flatMapMain {
                 //and these objects are streamed from .stream() method where it streams departments object
 
                 //.flatMap() accepts one argument but returns a stream, the stream doesn't need to be
-                //the same type as that of the arguement, since the argument value will have its own list of
+                //the same type as that of the argument, since the argument value will have its own list of
                 // values, in this case, the result stream of flatMap is of type "Employee"
 
                 .forEach(System.out::println);
