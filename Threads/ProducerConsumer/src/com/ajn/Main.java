@@ -62,7 +62,7 @@ public class Main {
             //our application will be frozen until the results are available.
             System.out.println(future.get());
         } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Somethinge went wrong");
+            System.out.println("Something went wrong");
             e.printStackTrace();
         }
 
@@ -90,7 +90,7 @@ class myProducer implements Runnable {
     @Override
     public void run() {
         Random random = new Random();
-        String[] values = {"1", "2", "3", "4", "5"};
+        String[] values = {"1", "2", "3", "4", "5","6"};
 
         for (String st : values) {
 
@@ -103,7 +103,7 @@ class myProducer implements Runnable {
                     reentrantLock.unlock(); //unlocks the lock and allows the suspended threads to proceed with executing this code
                 }
 
-                     Thread.sleep(random.nextInt(1000));
+                Thread.sleep(random.nextInt(1000));
             } catch (Exception e) {
                 System.out.println("Producer got interrupted");
             }
