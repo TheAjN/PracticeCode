@@ -1,32 +1,30 @@
 package com.ajn;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
-import java.util.concurrent.locks.ReentrantLock;
 
 import static com.ajn.Main.EOF;
 
 //EXAMPLE OF -
 //ArrayBlockingQueue
+//ExecutorService
 public class ArrayBlockingQueueMain {
     public static final String EOF = "EOF";
 
     public static void main(String[] args) {
-        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<String>(6);
+        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<>(6);
         // ReentrantLock bufferLock = new ReentrantLock(); Reentrant lock is not required
 
         //to manage fixed number of threads in a thread pool(in this case its 3)
         //This avoids us to explicitly create and execute threads
         //If number of Runnable classes executed is more than that of the size of the thread pool,
-        //then the additional threads will be on queue untill one of the threads terminate within the thread pool
+        //then the additional threads will be on queue until one of the threads terminate within the thread pool
 
         //To create an instance of ExecutorService, one must use a factory method (static method) of the Executors class
         //which returns an instance of ExecutorService
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
-        myProducer2 producer = new myProducer2(buffer, ThreadColour.ANSI_GREEN);
+        myProducer2 producer = new myProducer2(buffer, ThreadColour.ANSI_GREEN); //buffer is referenced to all 3 objects here
         myConsumer2 consumer1 = new myConsumer2(buffer, ThreadColour.ANSI_RED);
         myConsumer2 consumer2 = new myConsumer2(buffer, ThreadColour.ANSI_CYAN);
 
@@ -115,7 +113,7 @@ class myConsumer2 implements Runnable {
     @Override
     public void run() {
         while (true) {
-            synchronized (buffer){
+            synchronized (buffer) {
                 try {
                     if (buffer.isEmpty()) {
                         continue;
